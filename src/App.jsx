@@ -110,34 +110,34 @@ function App() {
 }
 
   async function sendReply() {
-    if (!reply.trim()) {
-      alert("Write something first, Love ❤️");
-      return;
-    }
-
-    try {
-      await emailjs.send(
-        "itsczandra",
-        "template_ev0saz6",
-        {
-          name: "Kong",
-          email: "",
-          message: reply,
-          activity: selectedActivity
-            ? `${selectedActivity.emoji} ${selectedActivity.title}`
-            : "No activity selected",
-          time: new Date().toLocaleString(),
-        },
-        "Oiuzw8lF_WDSxHhJT"
-      );
-
-      setSent(true);
-      setReply("");
-    } catch (error) {
-      console.error("EmailJS error:", error);
-      alert("Oops! The message didn't send. 😭 Please try again.");
-    }
+  if (!reply.trim()) {
+    alert("Write something first, Love ❤️");
+    return;
   }
+
+  try {
+    await emailjs.send(
+      "itsczandra",
+      "template_ev0saz6",
+      {
+        name: "Kong",
+        to_email: "cazandra.barrameda@gmail.com",
+        message: reply,
+        activity: selectedActivity
+          ? `${selectedActivity.emoji} ${selectedActivity.title}`
+          : "No activity selected",
+        time: new Date().toLocaleString(),
+      },
+      "Oiuzw8lF_WDSxHhJT"
+    );
+
+    setSent(true);
+    setReply("");
+  } catch (error) {
+    console.error("EmailJS error:", error);
+    alert("Oops! The message didn't send. 😭 Please try again.");
+  }
+}
 
 function handleNo() {
   const nextCount = noCount + 1;
