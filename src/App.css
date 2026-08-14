@@ -1,0 +1,903 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: "Quicksand", sans-serif;
+  color: #5b2940;
+  background: #ffe8f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8) 0 4px, transparent 5px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.6) 0 3px, transparent 4px),
+    linear-gradient(135deg, #ffe9f1, #ffd7e6);
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   APP / SCREEN
+========================================================= */
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.screen {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   DECORATIVE PIXEL HEART
+========================================================= */
+
+.pixel-heart {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: floatingHeart 2.5s ease-in-out infinite;
+  filter: drop-shadow(4px 5px 0 rgba(115, 45, 76, 0.12));
+}
+
+@keyframes floatingHeart {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.small-heading {
+  margin: 0 0 18px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 1px;
+  color: #b74f78;
+  text-align: center;
+}
+
+.screen h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(26px, 6vw, 52px);
+  line-height: 1.45;
+  color: #632b45;
+  text-shadow: 4px 4px 0 rgba(255,255,255,0.8);
+}
+
+.intro-screen h1 span {
+  color: #d75d8b;
+}
+
+.intro-text {
+  margin: 28px 0;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #805269;
+}
+
+
+/* =========================================================
+   FRONT PAGE
+========================================================= */
+
+.intro-screen {
+  background:
+    radial-gradient(circle at 15% 15%, #fff7fa 0 3%, transparent 3.2%),
+    radial-gradient(circle at 85% 25%, #fff7fa 0 2%, transparent 2.2%),
+    radial-gradient(circle at 20% 80%, #ffffffaa 0 2%, transparent 2.2%),
+    linear-gradient(145deg, #fff0f5, #ffd8e7);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.main-button,
+.yes-button,
+.no-button,
+.message-button,
+.lock-button,
+.send-button {
+  border: none;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  padding: 16px 22px;
+  border-radius: 12px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.main-button {
+  margin-top: 10px;
+  color: white;
+  background: #d85b88;
+  box-shadow:
+    0 7px 0 #9e3e61,
+    0 12px 20px rgba(113, 43, 72, 0.18);
+}
+
+.main-button:hover,
+.yes-button:hover,
+.message-button:hover,
+.lock-button:hover,
+.send-button:hover {
+  transform: translateY(-3px);
+}
+
+.main-button:active,
+.yes-button:active,
+.message-button:active,
+.lock-button:active,
+.send-button:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0 rgba(0,0,0,0.2);
+}
+
+
+/* =========================================================
+   QUESTION SCREEN
+========================================================= */
+
+.question-screen {
+  background:
+    radial-gradient(circle at 10% 20%, #fff 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 70%, #fff 0 3px, transparent 4px),
+    linear-gradient(145deg, #ffeaf2, #ffd3e3);
+}
+
+.question-buttons {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.yes-button {
+  color: white;
+  background: #d85b88;
+  box-shadow:
+    0 6px 0 #9e3e61,
+    0 10px 20px rgba(113, 43, 72, 0.18);
+}
+
+.no-button {
+  color: #7b4860;
+  background: #fff7fa;
+  border: 2px solid #e6a7bd;
+  box-shadow:
+    0 5px 0 #c7839e,
+    0 10px 18px rgba(113, 43, 72, 0.12);
+  z-index: 50;
+}
+
+
+/* =========================================================
+   ACTIVITY MENU
+========================================================= */
+
+.activities-screen {
+  justify-content: flex-start;
+  padding-top: 65px;
+  background:
+    radial-gradient(circle at 5% 10%, #ffffff 0 3px, transparent 4px),
+    radial-gradient(circle at 95% 18%, #ffffff 0 3px, transparent 4px),
+    radial-gradient(circle at 15% 90%, #ffffff 0 2px, transparent 3px),
+    linear-gradient(145deg, #fff0f5, #ffd7e7);
+}
+
+.top-message {
+  position: absolute;
+  top: 25px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: #fff7fa;
+  border: 2px solid #e5a4bc;
+  border-radius: 12px;
+  box-shadow: 0 5px 0 #c7839e;
+  animation: notificationBounce 2s ease-in-out infinite;
+}
+
+@keyframes notificationBounce {
+  0%,
+  85%,
+  100% {
+    transform: rotate(0);
+  }
+
+  90% {
+    transform: rotate(-8deg);
+  }
+
+  95% {
+    transform: rotate(8deg);
+  }
+}
+
+.activity-heading {
+  margin-bottom: 32px !important;
+  font-size: clamp(20px, 5vw, 34px) !important;
+}
+
+.activity-grid {
+  width: min(900px, 100%);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.activity-button {
+  min-height: 92px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  text-align: left;
+  color: #6d344d;
+  background: rgba(255,255,255,0.76);
+  border: 2px solid #e8afc4;
+  border-radius: 16px;
+  box-shadow:
+    0 6px 0 #cf8ca6,
+    0 10px 18px rgba(115, 45, 76, 0.09);
+  font-weight: 700;
+  font-size: 14px;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.activity-button:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  box-shadow:
+    0 10px 0 #cf8ca6,
+    0 15px 25px rgba(115, 45, 76, 0.13);
+}
+
+.activity-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #cf8ca6;
+}
+
+.activity-emoji {
+  flex-shrink: 0;
+  font-size: 28px;
+}
+
+.hint {
+  margin-top: 30px;
+  color: #a75a76;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PHOTO POPUP
+========================================================= */
+
+.photo-overlay,
+.message-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: rgba(74, 30, 49, 0.58);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.photo-modal {
+  position: relative;
+  width: min(440px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 24px;
+  text-align: center;
+  background: #fff4f8;
+  border: 3px solid #f0b3c9;
+  border-radius: 22px;
+  box-shadow:
+    0 12px 0 #9d4b6c,
+    0 25px 50px rgba(39, 12, 25, 0.3);
+  animation: modalPop 0.3s cubic-bezier(.17,.67,.3,1.3);
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.75) rotate(-3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.modal-close,
+.close-message {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  color: #7b3c58;
+  background: #ffe0eb;
+  font-size: 24px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.photo-frame {
+  padding: 10px;
+  background: white;
+  border: 1px solid #e6c3d0;
+  box-shadow: 0 8px 20px rgba(70, 24, 45, 0.12);
+  transform: rotate(-1deg);
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.date-eyebrow {
+  margin: 24px 0 8px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  color: #c44f79;
+  line-height: 1.8;
+}
+
+.photo-modal h2 {
+  margin: 10px 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #672c46;
+}
+
+.activity-message {
+  margin: 12px auto 22px;
+  max-width: 350px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #805269;
+}
+
+.lock-button {
+  color: white;
+  background: #d85b88;
+  box-shadow: 0 6px 0 #9e3e61;
+}
+
+
+/* =========================================================
+   LOCKED DATE SCREEN
+========================================================= */
+
+.locked-screen {
+  background:
+    radial-gradient(circle at 20% 15%, #ffffff 0 3px, transparent 4px),
+    radial-gradient(circle at 80% 20%, #ffffff 0 3px, transparent 4px),
+    linear-gradient(145deg, #fff0f5, #ffd6e6);
+}
+
+.notification {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 12px 15px;
+  color: #74354f;
+  background: #fff7fa;
+  border: 2px solid #e1a1b9;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 #c7839e;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  animation: notificationBounce 2s infinite;
+}
+
+.locked-screen h1 {
+  margin-bottom: 28px;
+}
+
+.locked-card {
+  width: min(600px, 100%);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  background: rgba(255,255,255,0.8);
+  border: 2px solid #e6b0c4;
+  border-radius: 20px;
+  box-shadow: 0 8px 0 #c7839e;
+}
+
+.locked-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.locked-info {
+  text-align: center;
+}
+
+.big-emoji {
+  font-size: 38px;
+}
+
+.locked-info h2 {
+  margin: 12px 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #682d47;
+}
+
+.locked-info p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #805269;
+}
+
+.message-button {
+  margin-top: 30px;
+  color: white;
+  background: #d85b88;
+  box-shadow: 0 6px 0 #9e3e61;
+}
+
+
+/* =========================================================
+   MESSAGE WINDOW
+========================================================= */
+
+.message-window {
+  position: relative;
+  width: min(650px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff7fa;
+  border: 3px solid #9d4b6c;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 0 #71354e,
+    0 25px 60px rgba(30, 8, 19, 0.35);
+  animation: modalPop 0.3s cubic-bezier(.17,.67,.3,1.3);
+}
+
+.message-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: #d85b88;
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+}
+
+.close-message {
+  position: static;
+  width: 30px;
+  height: 30px;
+  background: #ffe5ee;
+}
+
+.message-body {
+  padding: 25px;
+}
+
+.message-label {
+  margin: 5px 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  line-height: 1.8;
+  color: #9a5873;
+}
+
+.message-content {
+  margin: 22px 0;
+  padding: 20px;
+  background: #fff0f5;
+  border: 1px solid #edbfd0;
+  border-radius: 10px;
+  color: #70445a;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.final-question {
+  margin: 24px 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #c94f7a;
+  text-align: center;
+}
+
+.reply-section {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px dashed #e6b2c5;
+}
+
+.reply-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  color: #9a5873;
+}
+
+.reply-section textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  resize: vertical;
+  border: 2px solid #e1a7bc;
+  border-radius: 10px;
+  outline: none;
+  color: #663047;
+  background: white;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.reply-section textarea:focus {
+  border-color: #d85b88;
+  box-shadow: 0 0 0 3px rgba(216, 91, 136, 0.12);
+}
+
+.send-button {
+  margin-top: 12px;
+  color: white;
+  background: #d85b88;
+  box-shadow: 0 6px 0 #9e3e61;
+}
+
+
+/* =========================================================
+   SENT MESSAGE
+========================================================= */
+
+.sent-message {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.sent-heart {
+  font-size: 70px;
+  animation: heartBeat 1s infinite;
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+}
+
+.sent-message h2 {
+  margin: 25px 0 10px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 20px;
+  color: #c94f7a;
+}
+
+.sent-message p {
+  margin-bottom: 30px;
+  color: #805269;
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .screen {
+    padding: 45px 18px;
+  }
+
+  .screen h1 {
+    font-size: 23px;
+  }
+
+  .pixel-heart {
+    font-size: 3rem;
+  }
+
+  .intro-text {
+    font-size: 15px;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .activity-button {
+    min-height: 76px;
+    font-size: 12px;
+  }
+
+  .activity-emoji {
+    font-size: 25px;
+  }
+
+  .question-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .yes-button,
+  .no-button {
+    min-width: 190px;
+  }
+
+  .locked-card {
+    grid-template-columns: 1fr;
+  }
+
+  .locked-photo {
+    height: 300px;
+  }
+
+  .notification {
+    top: 15px;
+    right: 15px;
+    font-size: 8px;
+  }
+
+  .message-body {
+    padding: 18px;
+  }
+
+  .message-content {
+    padding: 15px;
+  }
+
+  .final-question {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-toggle {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 200;
+
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border: 2px solid #e5a4bc;
+  border-radius: 50%;
+
+  background: #fff7fa;
+
+  box-shadow:
+    0 5px 0 #c7839e,
+    0 8px 18px rgba(115, 45, 76, 0.15);
+
+  font-size: 20px;
+
+  animation: musicPulse 2s ease-in-out infinite;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.08);
+}
+
+.music-toggle:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #c7839e;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 5px 0 #c7839e,
+      0 8px 18px rgba(115, 45, 76, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 5px 0 #c7839e,
+      0 8px 25px rgba(216, 91, 136, 0.3);
+  }
+}
+
+/* =========================================================
+   EXTRA PHOTO MAGIC ✨
+========================================================= */
+
+.photo-overlay {
+  animation: photoOverlayIn 0.35s ease forwards;
+}
+
+.photo-modal {
+  animation:
+    photoCardEnter 0.45s cubic-bezier(.17,.67,.3,1.35) forwards,
+    photoFloat 4s ease-in-out 0.5s infinite;
+}
+
+.photo-frame {
+  position: relative;
+  overflow: visible;
+}
+
+.photo-frame::before,
+.photo-frame::after {
+  content: "❤️";
+  position: absolute;
+  font-size: 22px;
+  pointer-events: none;
+  animation: littleHeartFloat 2.5s ease-in-out infinite;
+}
+
+.photo-frame::before {
+  top: -18px;
+  left: -12px;
+  transform: rotate(-15deg);
+}
+
+.photo-frame::after {
+  right: -12px;
+  bottom: -15px;
+  font-size: 18px;
+  animation-delay: 0.8s;
+}
+
+@keyframes photoOverlayIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes photoCardEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) rotate(-7deg);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.04) rotate(2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes photoFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(0.5deg);
+  }
+}
+
+@keyframes littleHeartFloat {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.15);
+  }
+}
